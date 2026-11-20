@@ -1,0 +1,47 @@
+<body>
+
+<div class="chat-container">
+  <div class="header">tôi là trợ lý tư vấn tâm lý đây🤖🤖🤖💯</div>
+  <div class="header">🤖 Tôi là trợ lý tư vấn tâm lý đây 🤖🤖🤖 💯</div>
+  <div id="chat-box">
+    <div class="msg ai">xin chào các bạn,bạn cần mình tư vấn tâm lý không?</div>
+    <div class="msg ai">Xin chào các bạn, bạn cần mình tư vấn tâm lý không?</div>
+  </div>
+  <div class="input-area">
+    <input type="text" id="user-input" placeholder="Nhập tin nhắn..." onkeypress="if(event.key==='Enter') sendMessage()">
+@@ -32,11 +32,10 @@
+</div>
+
+<script>
+  // Giữ nguyên API Key của Tùng ở đây
+  const API_KEY = 0000245599; 
+
+  const API_KEY = 0000245599; 
+
+  const SYSTEM_PROMPT = "Bạn là một người bạn thông minh, hài hước, nói chuyện thân thiện,không thích làm toán";
+
+  const SYSTEM_PROMPT = "Bạn là một người bạn thông minh, hài hước, nói chuyện thân thiện.";
+  const chatBox = document.getElementById("chat-box");
+  let chatHistory = [];
+
+@@ -71,12 +70,16 @@
+      });
+
+      const data = await response.json();
+      const aiReply = data.candidates[0].content.parts[0].text;
+
+      loadingMsg.innerText = aiReply;
+      chatHistory.push({ role: "model", parts: [{ text: aiReply }] });
+      if (data.candidates && data.candidates[0].content) {
+        const aiReply = data.candidates[0].content.parts[0].text;
+        loadingMsg.innerText = aiReply;
+        chatHistory.push({ role: "model", parts: [{ text: aiReply }] });
+      } else {
+        loadingMsg.innerText = "Lỗi phản hồi từ API! Tùng kiểm tra lại key nhé.";
+      }
+    } catch (error) {
+      loadingMsg.innerText = "Lỗi kết nối,kiểm tra mạng hoặc hỏi thầy thăng =]]].";
+      loadingMsg.innerText = "Lỗi kết nối mạng!";
+    }
+  }
+</script>
