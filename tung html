@@ -32,7 +32,7 @@
 </div>
 
 <script>
-  const API_KEY = "0000245599";
+  const API_KEY = "AQ.Ab8RN6KlK4Nxy-vixJaDcUf4PAiugDPMBzWVNc4xmvzMc1Fclw";
   const SYSTEM_PROMPT = "Bạn là một người bạn thông minh, hài hước, nói chuyện thân thiện.";
   const chatBox = document.getElementById("chat-box");
   let chatHistory = [];
